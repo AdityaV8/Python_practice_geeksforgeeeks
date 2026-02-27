@@ -6,9 +6,14 @@ label = SG.Text("Type in a todo")
 input_box = SG.InputText(tooltip="Enter todo",key= "todo") #key is the id of value that is going to be given in the box
 add_button = SG.Button("Add")
 
+list_box = SG.Listbox(values=functions.get_todos(),
+                      key = "todos",
+                      enable_events=True,size= [45,10])
+edit_button = SG.Button("edit")
+
 #attaching widgets to the window
 window = SG.Window("The TO-DO App",
-                   layout=[[label],[input_box,add_button]],
+                   layout=[[label],[input_box,add_button],[list_box,edit_button]],
                    font = ("Helvetica",15))
 
 while True:
