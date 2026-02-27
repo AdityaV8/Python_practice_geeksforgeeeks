@@ -26,6 +26,20 @@ while True:
             new_todo = values["todo"]+"\n"
             todos.append(new_todo)
             functions.write_todos(todos)
+            window["todos"].update(values = functions.get_todos())
+        case "edit":
+            try:
+                todo_to_edit = values["todos"][0]
+                new_todo = values["todo"]+"\n"
+                todos = functions.get_todos()
+                index = todos.index(todo_to_edit)
+                todos[index] = new_todo
+                functions.write_todos(todos)
+                window["todos"].update(values = todos)
+            except IndexError:
+                SG.popup("Please select an item first",font=("Helvetica",15))
+        case "todos":
+            window["todo"].update(value = values["todos"][0])
         case SG.WIN_CLOSED:
             break
 
