@@ -10,10 +10,11 @@ list_box = SG.Listbox(values=functions.get_todos(),
                       key = "todos",
                       enable_events=True,size= [45,10])
 edit_button = SG.Button("edit")
+complete_button = SG.Button("complete",key="Complete")
 
 layouts=[[label],
          [input_box,add_button],
-         [list_box,edit_button]]
+         [list_box,edit_button,complete_button]]
 
 #attaching widgets to the window
 window = SG.Window("The TO-DO App",
@@ -42,8 +43,16 @@ while True:
                 window["todos"].update(values = todos)
             except IndexError:
                 SG.popup("Please select an item first",font=("Helvetica",15))
+        case "Complete":
+            todo_to_complete = values["todos"][0]
+            todos = functions.get_todos()
+            todos.remove(todo_to_complete)
+            functions.write_todos(todos)
+            window["todos"].update(values=todos)
         case "todos":
             window["todo"].update(value = values["todos"][0])
+        case "Exit":
+            break
         case SG.WIN_CLOSED:
             break
 
