@@ -1,5 +1,5 @@
 # from functions import get_todos, write_todos
-import GUIApp.functions as functions
+import functions
 import time
 
 print(f"Date : {time.strftime('%b %d-20%y ')}")
