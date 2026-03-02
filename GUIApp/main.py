@@ -1,6 +1,12 @@
 import functions
 import FreeSimpleGUI as SG
 import time
+import os
+
+
+if not os.path.exists("todofile.txt"):
+    with open("todofile.txt","w") as file:
+        pass
 
 SG.theme("black") #theme of the app
 #creation of the widgets
@@ -13,8 +19,8 @@ add_button = SG.Button("Add")
 list_box = SG.Listbox(values=functions.get_todos(),
                       key = "todos",
                       enable_events=True,size= [45,10])
-edit_button = SG.Button("edit")
-complete_button = SG.Button("complete",key="Complete")
+edit_button = SG.Button("Edit")
+complete_button = SG.Button("Complete",key="Complete")
 exit_Button = SG.Button("Exit",key="Exit") #key is used to identify the button when it is clicked
 
 layouts=[[clock],[label],
@@ -35,7 +41,7 @@ while True:
             todos.append(new_todo)
             functions.write_todos(todos)
             window["todos"].update(values = functions.get_todos())
-        case "edit":
+        case "Edit":
             try:
                 todo_to_edit = values["todos"][0]
                 new_todo = values["todo"]+"\n"
