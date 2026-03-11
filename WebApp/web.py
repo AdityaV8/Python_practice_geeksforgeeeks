@@ -9,10 +9,11 @@ def add_todo():
     functions.write_todos(todos)
     print(todo)
 
+st.set_page_config(layout="wide")
 
 st.title("My TODO App")
 st.subheader("Add new task")
-st.write("This app will improve your productivity ")
+st.write("<b> This app will improve your productivity </b> ",unsafe_allow_html=True)
 
 for index,todo in enumerate(todos):
     checkbox = st.checkbox(todo,key=todo)

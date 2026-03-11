@@ -1,4 +1,4 @@
-FILEPATH = "/home/aditya/Documents/Python Practice/Python_practice_geeksforgeeeks/GUIApp/todofile.txt"
+FILEPATH = "/home/adityanarayan/Documents/Python_practice_geeksforgeeeks/WebApp/todofile.txt"
 
 def get_todos(filepath=FILEPATH):
     with open(filepath) as file:

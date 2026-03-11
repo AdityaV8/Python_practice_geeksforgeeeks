@@ -2,6 +2,7 @@ import functions
 import FreeSimpleGUI as SG
 import time
 import os
+import tkinter as tk
 
 
 if not os.path.exists("todofile.txt"):
